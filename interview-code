@@ -1,0 +1,20 @@
+let array = [1, 2, 3, 5, 6, 8, 9];
+
+let squares = array.map(n => (n * n));
+
+let orderSquares = squares.sort((a,b)=>a-b);
+
+
+let coins = [5, 7, 1, 1, 2, 3, 22];
+let orderCoins = coins.sort((a,b)=>a-b);  //[1, 1, 2, 3, 5, 7, 22]
+
+function minSumCoins(orderCoins){
+    let minSum = 1;
+
+    for(let i = 2; i < orderCoins.length; i++) {
+        if(minSum + orderCoins[i] > minSum + 1){
+            return minSum + 1
+        }
+        minSum += orderCoins[i]
+    }
+}
